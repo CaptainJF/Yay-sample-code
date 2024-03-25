@@ -15,3 +15,4 @@ json = {
 }
 
 post = requests.post('https://api.yay.space/v3/posts/new',headers=headers,json=json).json()
+print(post)
