@@ -1,18 +1,23 @@
 #投稿をする
 
+import uuid
 import requests
 
-access_token = 'TOKEN'
+access_token = 'Token'
 
 headers = {
-    'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-    'Authorization' : f'Bearer {access_token}'
-}
+        'Authorization': f'Bearer {access_token}',
+    }
 
 post_text = str(input('[投稿文]>>'))
 json = {
-    'text' : post_text
+    "post_type": "text",
+    "text": post_text,
+    "color": "0",
+    "font_size": "0",
+    "message_tags": "[]",
+    "uuid": str(uuid.uuid4())
 }
 
-post = requests.post('https://api.yay.space/v3/posts/new',headers=headers,json=json).json()
+post = requests.post('https://yay.space/api/posts',headers=headers,json=json).json()
 print(post)
