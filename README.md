@@ -1,1 +1,1 @@
-# yay.space-code
+# Yayの簡単なコードを書きます
